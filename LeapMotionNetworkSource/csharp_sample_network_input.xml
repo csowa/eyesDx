@@ -1,0 +1,102 @@
+<!--****************************************************************************
+    This is a sample network input source for Adapter Launcher.
+   
+    A sample python script 'sample_network_input_source.py' is included. It
+    generates a network source that pairs with the input described here.
+   
+    For more information about the fields contained, please visit
+    http://www.eyesdx.com/client/userguide/apps/adapters/network.html.
+   
+    Documentation last updated April 19, 2016.
+*****************************************************************************-->
+
+<root>
+
+  <!-- Path where data should be cached. Note that it must be UNIQUE from all other adapters. -->
+  <log_path>C:\eDx_data\adapter_logs\csharp_sample\</log_path>
+
+  <!-- Adapter type detection for adapter runner. -->
+  <adapter_type>network</adapter_type>
+  
+  <!-- Searchable phrases for discovering this service. -->
+  <search_phrases>C# Sample</search_phrases>
+  
+  <!-- Description for this service. -->
+  <description>C# Sample Sample network stream.</description>
+  
+  <!-- Export data to MAPPS in live mode (does not affect recording). -->
+  <export_to_mapps>true</export_to_mapps>
+  
+  <!-- Ignore the timestamps from the remote machine and use the time
+       that the packet was received instead. -->
+  <force_local_timestamps>false</force_local_timestamps>
+
+  <!-- Mode to operate in: binary,ascii,stream,signal_stream -->
+  <mode>ascii</mode>
+  
+  <network>
+    <!-- ADVANCED USERS ONLY: Force a local network binding. -->
+    <local_address></local_address>
+    
+    <!-- Multicast port to use (or empty if not using multicast). Applies only for
+         'binary' or 'ascii' modes. -->
+    <mc_address></mc_address>
+    
+    <!-- Network port to use. -->
+    <port>4400</port>
+  </network>
+  
+  <global>
+    <!-- Type of device (e.g., phyio, eye_tracking, eeg, ...). -->
+    <device_type>CSharp_Sample_Device</device_type>
+    
+    <!-- Unique name of this device. -->
+    <unique_name>C#_Sample_Bus</unique_name>
+    
+    <!-- Ideal run rate, in Hz. -->
+    <target_rate_hz>50</target_rate_hz>
+    
+    <!-- Unique index, used if multiple parallel network translators are running. [0,9] -->
+    <multi_device_index>1</multi_device_index>  
+  </global>
+  
+  <!-- Begin an array of elements that describe the bus. -->
+  <bus_description>
+    <elements>
+    	
+      <!-- First element. -->
+      <element>
+        <name>SomeTextField</name>     <!-- Element name. -->
+        <type>string64</type>          <!-- Element type. -->
+      </element>
+      
+      <!-- Second element. -->
+      <element>
+      	<name>AnIntegerField</name>    <!-- Element name. -->
+      	<type>int</type>               <!-- Element type. -->
+      </element>
+      
+      <!-- Third element. -->
+      <element>
+      	<name>SomeFloatField</name>    <!-- Element name. -->
+      	<type>float</type>             <!-- Element type. -->
+      </element>
+      
+      <!-- Fourth element. -->
+      <element>
+      	<name>SomeDoubleField</name>   <!-- Element name. -->
+      	<type>double</type>            <!-- Element type. -->
+      </element>
+      
+      <!-- Fifth element. -->
+      <element>
+      	<name>Some64BitIntField</name> <!-- Element name. -->
+      	<type>int64</type>             <!-- Element type. -->
+      </element>
+      
+      <!-- You may continue to add as many elements to the list as needed. -->
+      <!-- ... -->
+      
+    </elements>
+  </bus_description>
+</root>
